@@ -1,29 +1,24 @@
-#include "main.h"
-
-/**
- *  * rot13 - Encodes a string using rot13.
- *   * @s: The string to be encoded.
- *    *
- *     * Return: A pointer to the encoded string.
- *      */
-
-char *rot13(char *s)
+ a string into 1337
+ * @str: string to be encoded
+ *
+ * Return: pointer to the encoded string
+ */
+char *leet(char *str)
 {
-	int i, j;
-	char *a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char *b = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+int indxOne = 0, indxTwo;
+char leet[8] = {'O', 'L', '?', 'E', 'A', '?', '?', 'T'};
 
-	for (i = 0; s[i]; i++)
-	{
-		for (j = 0; a[j]; j++)
-		{
-			if (s[i] == a[j])
-			{
-				s[i] = b[j];
-				break;
-			}
-		}
-	}
+while (str[indxOne])
+{
+for (indxTwo = 0; indxTwo <= 7; indxTwo++)
+{
+if (str[indxOne] == leet[indxTwo] ||
+str[indxOne] - 32 == leet[indxTwo])
+str[indxOne] = indxTwo + '0';
+}
 
-	return (s);
+indxOne++;
+}
+
+return (str);
 }
